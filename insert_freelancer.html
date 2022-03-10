@@ -1,0 +1,74 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Tambah Data Freelancer</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Form Tambah Data Freelancer</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="{{ url_for('insert_freelancer') }}" method="POST">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="id_freelancer">ID Freelancer</label>
+                    <input type="text" class="form-control" id="id_freelancer" name="id_freelancer" placeholder="Masukkan Nomor ID...">
+                  </div>
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username...">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password...">
+                  </div>
+                  <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama...">
+                  </div>
+                  <div class="form-group col-md-14">
+                    <label for="tipe_akses">Tipe Akses</label>
+                    <select type="text" class="form-control" name="tipe_akses" placeholder="">
+                      <option value=""></option>
+                      <option value="0">Admin</option>
+                      <option value="1">Freelancer</option>
+                      <option value="2">Answerer</option>
+                      <option value="3">Korektor</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

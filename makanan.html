@@ -1,0 +1,104 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="background-color: 	#F5FFFA;">
+      <div class="container-fluid" style="background-color: 	#F5FFFA;">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Diskusi Kampung Wirausaha</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content" style="background-color: 	#F5FFFA;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- NOTES -->
+        <p type="button" class="btn btn-danger btn-block">Notes: Kerjakan soal yang BELUM memiliki jawaban. </p>
+        <!-- NAVBAR MENU -->
+        <p type="button" class="btn btn-block">
+          <a href="{{ url_for('insert_pertanyaan') }}" type="button" class="btn btn-success btn-sm" style="margin-left: 20px; width: 130px; margin-bottom: 3px;">Ajukan Pertanyaan</a><br>
+          <a href="#" type="button" class="btn btn-dark btn-sm" style="margin-left: 20px; width: 130px;">Kategori Makanan</a><br>
+          <!-- <input TYPE="button" class="btn btn-dark btn-sm" style="margin-top: 3px; margin-left: 20px;  width: 60px;"  VALUE="Back" onClick="history.go(-1);"> -->
+        </p>
+        {% for row in container_makanan %}
+        <div class="col-lg-8" style="margin: auto;">
+          <div class="card" style="background-color: aliceblue; border-radius: 7px; border: 6px solid #B0C4DE;">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table>
+                  <tr>
+                    <a class="btn btn-info btn-sm" role="button"><b>{{ row[1] }}</b></a> <a class="btn btn-info btn-sm" role="button" style="margin-left: 10px;"><b>{{ row[2] }}</b></a> <a class="btn btn-info btn-sm" role="button" style="margin-left: 10px;"><b>{{ row[6] }}</b></a>
+                  </tr>
+                </table>
+                <hr color="#DCDCDC">
+                <div>
+                  <p style="color: darkslategray; margin-left: 8px;"><b>Pertanyaan</b></p>
+                  <textarea readonly style=" color: darkslategray; width: 100%; height: 100px; border: 2px solid  #B0C4DE; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7);">{{ row[3] }}</textarea>
+                </div>
+                <div>
+                  <p style="color: darkslategray; margin-left: 8px;"><b>Jawaban</b></p>
+                  <textarea readonly style=" color: darkslategray; width: 100%; height: 100px; border: 2px solid  #B0C4DE; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7);">{{ row[5] }}</textarea>
+                </div>
+                <div>
+                  <a style="margin-left: 8px;" href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-success btn-sm" role="button">Jawab</a>
+                  {% if data_nama[2] == 0 %}
+                  <a href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-warning btn-sm" role="button">Koreksi</a>
+                  <a href="{{ url_for('delete_pertanyaan', no = row[0]) }}" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                  {% endif %}
+                </div><br>
+                <table style="margin-left: 8px;">
+                  <tr>
+                    <td style=" color: darkslategray;"><b>Penjawab</b></td> <td style=" color: darkslategray;">:</td> <td style="margin-left: 10px;" class="btn btn-dark btn-sm" role="button">{{ row[4] }}</td>
+                  </tr>
+                </table>
+                <div>
+                  <p style="color: darkslategray; margin-left: 8px;"><b>Catatan Admin</b></p>
+                  <textarea readonly style=" color: darkslategray; width: 100%; height: 60px; border: 2px solid #B0C4DE; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7);">{{ row[8] }}</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div><!--End Row-->
+
+
+    <!--start overlay-->
+      <div class="overlay toggle-menu"></div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+  
+          </div>
+        </div>
+              <!-- /.card-body -->
+              <!-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

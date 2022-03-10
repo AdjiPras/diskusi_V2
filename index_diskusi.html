@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"  style="background-color: 	white;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Selamat Datang {{ data_nama[1] }} , di Diskusi Kampung Wirausaha.</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content" style="background-color: 	white;">
+      <div class="container-fluid" style="background-color: 	white;">
+      </div>
+      <!-- /.container-fluid -->
+      <div class="img-fluid">
+        <img src="{{ url_for('static', filename='dist/img/diskusi.gif')}}" border="0" style="margin-left: 10px; margin-top:100px; margin-left: 100px; max-width: 100%; height: auto;">
+      </div>
+      <div style="margin-left: 320px;">
+        <a href="{{ url_for('insert_pertanyaan') }}" type="button" class="btn btn-dark">Silahkan Bertanya</a>
+      </div>
+      <!-- Carousel wrapper -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+      
+{% include 'footer.html' %}

@@ -1,0 +1,103 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="background-color: 	#F5FFFA;">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Diskusi Kampung Wirausaha</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content" style="background-color: 	#F5FFFA;">
+      <div class="container-fluid" style="background-color: 	#F5FFFA;">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header" style="background-color: #FFFACD;">
+                <!-- <h3 class="card-title">Tabel Data Pertanyaan</h3><br><br> -->
+                <div>
+                  <a href="{{ url_for('insert_pertanyaan') }}" type="button" class="btn btn-dark btn-sm">Tambahkan Pertanyaan</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table id="example" class="table dt-responsive nowrap">
+                  <thead>
+                    <tr style="text-align: center;">
+                      <th>No</th>
+                      <th>Username</th>
+                      <th>Kategori</th>
+                      <th>Pertanyaan</th>
+                      <th>Penjawab</th>
+                      <th>Jawaban</th>
+                      <th>Time</th>
+                      <th>Ranking</th>
+                      <th>Catatan</th>
+                      <th>Action</th>
+                      <th colspan="2">Koreksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% set no=namespace(value=1) %}
+                    {% for row in container_pertanyaan %}
+                    <tr>
+                      <td style="text-align: center;">{{ no.value }}</td>
+                      {% set no.value=no.value+1 %}
+                      <td>{{ row[1] }}</td>
+                      <td style="text-align: center;">{{ row[2] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px;">{{ row[3] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[4] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px;">{{ row[5] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[6] }}</td>
+                      <td style="text-align: center;">{{ row[7] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px; ">{{ row[8] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[9] }}<a href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-success btn-sm" role="button">Jawab</a></td>
+                      <td style="text-align: center;">{{ row[10] }}<a href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-dark btn-sm" role="button">Koreksi</a><br>
+                        {% if data_nama[3] == 0 %}<a href="{{ url_for('delete_pertanyaan', no = row[0]) }}" class="btn btn-danger btn-sm" role="button" style="margin-top: 3px;">Hapus</a></td>{% endif %}
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+              <!-- /.card-body -->
+              <!-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}
